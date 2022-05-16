@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            min-width: 100%;
+            min-height: 100%;
+            box-sizing: border-box;
+            margin: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+       }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding-bottom: 5em;
+       }
+        .left-column, .right-column {
+            display: flex;
+            flex-direction: column;
+       }
+        .left-column {
+            width: 45%;
+            padding: 0 1em;
+       }
+        .left-column .horizontal-length, .left-column .vertical-length, .left-column .blur-radius, .left-column .spread-radius, .left-column .opacity {
+            display: flex;
+            flex-direction: column;
+            margin: 1em auto;
+            width: 90%;
+       }
+        .left-column .horizontal-length input[type="number"], .left-column .vertical-length input[type="number"], .left-column .blur-radius input[type="number"], .left-column .spread-radius input[type="number"], .left-column .opacity input[type="number"] {
+            width: 4em;
+            padding: 0.5em 0 0.5em 0.5em;
+            font-size: 0.8rem;
+       }
+        .left-column .main-heading {
+            font-family: 'Source Sans Pro', sans-serif;
+            width: 90%;
+            margin: 1em auto 0.5em;
+       }
+        .left-column .colors {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 0;
+            width: 90%;
+            margin: 0 auto;
+       }
+        .left-column .colors div {
+            margin-right: 2em;
+       }
+        .left-column .colorInput {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0 0 1em;
+       }
+        .left-column .colorInput p {
+            margin: 0;
+       }
+        .left-column .colorInput input[type="text"] {
+            width: 5.5em;
+            margin-left: 1em;
+            text-align: right;
+            padding: 0.5em;
+       }
+        .left-column .inset {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            width: 90%;
+            margin: 0 auto;
+       }
+        .left-column .inset .insetInput {
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            margin: 1em 1.5em 0 0;
+            align-items: center;
+       }
+        .left-column input[type="checkbox" i] {
+            width: 20px;
+            margin-bottom: 0;
+       }
+        .left-column .label {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+       }
+        .right-column {
+            background-color: #f9f9f9;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            width: 55%;
+            box-shadow: -8px 0px 10px -5px rgba(0, 0, 0, 0.1);
+       }
+        pre {
+            margin: 5em 0 8em;
+       }
+        pre code {
+            width: 100%;
+            background-color: white;
+            padding: 2em;
+       }
+        .button {
+            padding: 1em 4em;
+            border: 0;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            background-color: #c11c35;
+            font-weight: 500;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
+            color: white;
+            outline: none;
+            transition: 0.3s;
+       }
+        .button:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+       }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+         <h1 class="main-heading">CSS Box Shadow Generator</h1>
+         <div class="colors">
+            <div class="shadow-color">
+              <p>Shadow Color</p>
+              <div class="colorInput">
+              <input id="shadow-color" type="color" value="#000000">
+                <p><input type="text" value="#000000" id="shadowHex" maxlength="7"></p>
+              </div>
+            </div>
+            <div class="bg-color">
+              <p>Background Color</p>
+              <div class="colorInput">
+                <input id="bg-color" type="color" value="#f9f9f9">
+                <p><input type="text" value="#f9f9f9" id="bgHex"maxlength="7"/></p>
+              </div>
+            </div>
+            <div class="button-color">
+              <p>Button Color</p>
+              <div class="colorInput">
+                <input id="button-color" type="color" value="#6bb1ee">
+                <p><input type="text" value="#000000" id="buttHex" maxlength="7"/></p>
+              </div>
+            </div>
+            <div class="text-color">
+              <p>Text Color</p>
+              <div class="colorInput">
+                <input id="text-color" type="color" value="#ffffff">
+                <p><input type="text" id="textHex" maxlength="7" /></p>
+              </div>
+            </div>
+          </div>
+          <div class="horizontal-length">
+            <div class="label">
+              <p>Horizontal Length</p>
+              <p><input type="number" value="12" id="horizontalVal"> px</p>
+            </div>
+            <input id="horizontal" type="range" min="-200" max="200" value="0">
+          </div>
+          <div class="vertical-length">
+            <div class="label">
+              <p>Vertical Length</p>
+              <p><input type="number" value="12" id="verticalVal"> px</p>
+            </div>
+            <input id="vertical" type="range" min="-200" max="200" value="10">
+          </div>
+           <div class="blur-radius">
+            <div class="label">
+              <p>Blur Radius</p>
+              <p><input type="number" value="12" id="blurRadius"> px</p>
+            </div>
+            <input id="blur" type="range" min="0" max="100" value="10">
+          </div>
+           <div class="spread-radius">
+            <div class="label">
+              <p>Spread Radius</p>
+              <p><input type="number" value="12" id="spreadRadius"> px</p>
+            </div>
+            <input id="spread" type="range" min="-50" max="50" value="-5">
+          </div>
+          <div class="opacity">
+            <div class="label">
+              <p>Opacity</p>
+              <p><input type="number" value="1" id="opacityVal"></p>
+            </div>
+            <input id="opacity" type="range" max="1" min="0" step=".010" value="0.5">
+          </div>
+          <div class="inset">
+            <div class="insetInput">
+              <p class="inset">Inset</p>
+              <input id="inset" value="inset" type="checkbox">
+            </div>
+          </div>
+        </div>
+        <div class="right-column">
+          <button class="button">Box</button>
+          <pre><code>
+          </code></pre>
+        </div>
+      </div>
+      <script>
+        var horizontal = document.querySelector('#horizontal');
+        var vertical = document.querySelector('#vertical');
+        var blur = document.querySelector('#blur');
+        var spread = document.querySelector('#spread');
+        var shadow = document.querySelector('#shadow-color');
+        var bgColor = document.querySelector('#bg-color');
+        var buttonColor = document.querySelector('#button-color');
+        var textColor = document.querySelector('#text-color');
+        var opacity = document.querySelector('#opacity');
+        var inset = document.querySelector('#inset');
+        var button = document.querySelector('.button');
+        var boxShadowString = getInset() + getHorizontal() + "px " + getVertical() + "px " + getBlur() + "px " + getSpread() + "px " + getColor(shadow.value, opacity.value);
+        var horiVal = document.querySelector('#horizontalVal')
+        ;
+        var veriVal = document.querySelector('#verticalVal');
+        var blurVal = document.querySelector('#blurRadius');
+        var spreadVal = document.querySelector('#spreadRadius');
+        var shadowVal = document.querySelector('#shadowHex');
+        var codeSnippet = document.querySelector('.right-column pre code');
+        var opacVal = document.querySelector('#opacityVal');
+        var bgVal = document.querySelector("#bgHex");
+        var txtVal = document.querySelector('#textHex');
+        var buttVal = document.querySelector('#buttHex');
+        
+        horiVal.value = getHorizontal();
+        veriVal.value = getVertical();
+        blurVal.value = getBlur();
+        opacVal.value = opacity.value;
+        spreadVal.value = getSpread();
+        shadowVal.value = shadow.value;
+        button.style.backgroundColor = buttonColor.value;
+        buttVal.value = buttonColor.value;
+        bgVal.value = bgColor.value;
+        txtVal.value = textColor.value;
+        
+        codeSnippet.innerHTML = "box-shadow: " + boxShadowString + ";";
+        button.style.boxShadow = boxShadowString;
+        button.style.backgroundColor = buttonColor.value;
+        button.style.color = textColor.value;
+        document.querySelector('.right-column').style.backgroundColor = bgColor.value;
+        
+        inset.addEventListener('change', function() {
+          boxShadowString = getInset() + getHorizontal() + "px " + getVertical() + "px " + getBlur() + "px " + getSpread() + "px " + getColor(shadow.value, opacity.value);
+          button.style.boxShadow = boxShadowString;
+          codeSnippet.innerHTML = "box-shadow: " + boxShadowString + ";";
+        })
+        
+        opacity.addEventListener('mousemove', function() {
+          boxShadowString = getInset() + getHorizontal() + "px " + getVertical() + "px " + getBlur() + "px " + getSpread() + "px " + getColor(shadow.value, opacity.value);
+          opacVal.value = opacity.value;
+            button.style.boxShadow = boxShadowString;
+          codeSnippet.innerHTML = "box-shadow: " + boxShadowString + ";";
+        })
+        
+        horizontal.addEventListener('mousemove', function() {
+          boxShadowString = getInset() + getHorizontal() + "px " + getVertical() + "px " + getBlur() + "px " + getSpread() + "px " + getColor(shadow.value, opacity.value);
+          horiVal.value = getHorizontal();
+            button.style.boxShadow = boxShadowString;
+          codeSnippet.innerHTML = "box-shadow: " + boxShadowString + ";";
+        });
+        
+        vertical.addEventListener('mousemove', function() {
+          boxShadowString = getInset() + getHorizontal() + "px " + getVertical() + "px " + getBlur() + "px " + getSpread() + "px " + getColor(shadow.value, opacity.value);
+         veriVal.value = getVertical();
+            button.style.boxShadow = boxShadowString;
+          codeSnippet.innerHTML = "box-shadow: " + boxShadowString + ";";
+        });
+        
+        blur.addEventListener('mousemove', function() {
+          boxShadowString = getInset() + getHorizontal() + "px " + getVertical() + "px " + getBlur() + "px " + getSpread() + "px " + getColor(shadow.value, opacity.value);
+          blurVal.value = getBlur();
+            button.style.boxShadow = boxShadowString;
+          codeSnippet.innerHTML = "box-shadow: " + boxShadowString + ";";
+        });
+        
+        spread.addEventListener('mousemove', function() {
+          boxShadowString = getInset() + getHorizontal() + "px " + getVertical() + "px " + getBlur() + "px " + getSpread() + "px " + getColor(shadow.value, opacity.value);
+          spreadVal.value = getSpread();
+            button.style.boxShadow = boxShadowString;
+          codeSnippet.innerHTML = "box-shadow: " + boxShadowString + ";";
+        });
+        
+        shadow.addEventListener('change', function() {
+          boxShadowString = getInset() + getHorizontal() + "px " + getVertical() + "px " + getBlur() + "px " + getSpread() + "px " + getColor(shadow.value, opacity.value);
+          shadowVal.value = shadow.value;
+            button.style.boxShadow = boxShadowString;
+          codeSnippet.innerHTML = "box-shadow: " + boxShadowString + ";";
+        });
+        
+        bgVal.addEventListener('change', function() {
+          bgColor.value = bgVal.value; document.querySelector('.right-column').style.backgroundColor = bgColor.value;
+        });
+        
+        buttVal.addEventListener('change', function() {
+          buttonColor.value = buttVal.value; button.style.backgroundColor = buttonColor.value;
+        });
+        
+        txtVal.addEventListener('change', function() {
+          textColor.value = txtVal.value; button.style.color = textColor.value;
+        });
+        
+        
+        shadowVal.addEventListener('change', function() {
+          shadow.value = shadowVal.value;
+        });
+        
+        bgColor.addEventListener('change', function() {
+          document.querySelector('.right-column').style.backgroundColor = bgColor.value;
+          bgVal.value = bgColor.value;
+        });
+        
+        textColor.addEventListener('change', function() {
+         document.querySelector('.button').style.color = textColor.value;
+          txtVal.value = textColor.value;
+        });
+        
+        buttonColor.addEventListener('change', function() { document.querySelector('.button').style.backgroundColor = buttonColor.value;
+          buttVal.value = buttonColor.value;
+        });
+        
+        
+        
+        function getHorizontal() {
+          return horizontal.value;
+        }
+        
+        function getVertical() {
+          return vertical.value;
+        }
+        
+        function getBlur() {
+          return blur.value;
+        }
+        
+        function getSpread() {
+          return spread.value;
+        }
+        
+        function getInset() {
+          if (inset.checked) {
+            return "inset ";
+          }
+          return ""; 
+        }
+        
+        function getOpacity() {
+          getColor(shadow.val, opacity.val);
+        }
+        
+        function getColor(hex, opacity) {
+          var rgb = hexToRgb(hex);
+          var rgbString = "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + "," + opacity + ")";
+          return rgbString;
+        }
+        
+        function hexToRgb(hex) {
+            var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        }     
+      </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML VS CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            background: #1d1e22;
+        }
+
+        .create-button {
+            font-family: monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: rgb(0, 0, 0);
+            /* background: transparent; */
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            position: relative;
+            transform: translate(-50%, -50%);
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 0.8em 1.6em;
+            font-size: 18px;
+            overflow: hidden;
+        }
+
+        .create-button:focus,
+        .create-button:active {
+            outline: none;
+        }
+
+        .create-button:before,
+        .create-button:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: auto;
+            width: auto;
+            z-index: -1;
+            border-radius: inherit;
+            background: inherit;
+        }
+
+        .create-button:before {
+            background: linear-gradient(90deg, #ff00c8, #ff00bf, #9500ff, #c300ff, #ff0000, #ff0000, #ae63e4, #47cf73);
+            background-size: 200% 200%;
+        }
+
+        .create-button:after {
+            margin: 3px;
+        }
+
+        .create-button:hover:before,
+        .create-button:focus:before {
+            animation: rainbow-border 1.5s linear infinite;
+        }
+
+        @keyframes rainbow-border {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        .canter{
+            margin-top: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canter">
+        <button class="create-button">
+            <span> Button</span>
+        </button><br><br>
+        <button class="create-button">
+            <span> Button</span>
+        </button><br><br>
+        <button class="create-button">
+            <span> Button</span>
+        </button><br><br>
+        <button class="create-button">
+            <span> Button</span>
+        </button><br><br>
+        <button class="create-button">
+            <span> Button</span>
+        </button><br><br>
+        <button class="create-button">
+            <span> Button</span>
+        </button><br><br>
+    </div>
+</body>
+
+</html>

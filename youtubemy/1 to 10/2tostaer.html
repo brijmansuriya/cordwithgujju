@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        button {
+            border-radius: 20px;
+            border: none;
+            padding: 1rem 2rem;
+            color: #fff;
+            font-size: 1.45em;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: background 0.5s;
+        }
+
+        button.accept {
+            background: #1de9b6;
+            border: 1px solid #15d8a7;
+            box-shadow: 3px 3px 0px 2px rgba(29, 233, 182, 0.20);
+        }
+
+        button.accept:hover {
+            background: #63f0cd;
+        }
+
+        button.cancel {
+            background: #ff1744;
+            border: 1px solid #fd0031;
+            box-shadow: 3px 3px 0px 2px rgba(255, 23, 68, 0.20);
+        }
+
+        button.cancel:hover {
+            background: #ff6482;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        .popup {
+            position: fixed;
+            padding: 18px 56px;
+            background: #fff;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            box-shadow: 5px 5px 0px 2px rgba(0, 0, 0, 0.1);
+            font-size: 2rem;
+        }
+
+        .popup.visible {
+            transition-property: right;
+            transition-duration: 1s;
+            right: 1vw;
+        }
+
+        .popup.hidden {
+            transition-property: right;
+            transition-duration: 1s;
+            right: -100vw;
+        }
+
+        .position-br {
+            right: -200vw;
+            bottom: 1vh;
+        }
+
+        .position-tr {
+            right: -200vw;
+            top: 1vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <!-- buttons -->
+        <button class="cancel" data-target="come-back">Cancel</button>
+        <button class="accept" data-target="thank-you">Accept</button>
+        <!--- /buttons -->
+
+        <!-- popup (thank you)-->
+        <div id="thank-you" class="popup position-tr">
+            Thank You!
+        </div>
+        <!-- /popup -->
+
+        <!-- popup (Come back soon)-->
+        <div id="come-back" class="popup position-br">
+            Come back soon.
+        </div>
+        <!-- /popup -->
+
+    </div>
+    <!-- /wrapper -->
+
+    <script>
+
+        //  Get all buttons as well as the wrapper
+        let buttons = document.querySelectorAll('button'),
+            wrapper = document.getElementsByTagName('body')[0];
+
+        // Add click, touch event listener for each button
+        buttons.forEach(button => {
+            button.addEventListener('click', event => {
+                handlePopupClick(event);
+            });
+
+            button.addEventListener('touchstart', event => {
+                handlePopupClick(event);
+            });
+        });
+
+        const handlePopupClick = (event) => {
+            // Get the button's associated pop-up element
+            let popupTarget = document.getElementById(event.target.dataset.target);
+
+            // If the animation is running or popup is visible, lets escape as to not allow multiple button clicks
+            if (popupTarget.classList.contains('visible') || popupTarget.classList.contains('hidden')) {
+                return false;
+            }
+
+            // Add class with CSS transition
+            popupTarget.classList.add('visible');
+
+            // Listen for clicks outside of popup so we can cancel and close 
+            wrapper.addEventListener('click', event => {
+                if (event.target === wrapper) {
+                    hidePopup(popupTarget);
+                }
+            }, false);
+
+            wrapper.addEventListener('touchstart', event => {
+                if (event.target === wrapper) {
+                    hidePopup(popupTarget);
+                }
+            }, false);
+
+            // On Click, set a timeout for 8 seconds for running the hide animation
+            setTimeout(() => {
+                hidePopup(popupTarget);
+            }, 8 * 1000);
+
+
+        }
+
+        // Fn to Hide popups
+        const hidePopup = (popupTarget) => {
+            popupTarget.classList.remove('visible');
+            popupTarget.classList.add('hidden');
+
+            // This is included to allow multiple clicks for this demo
+            setTimeout(() => {
+                popupTarget.classList.remove('hidden');
+            }, 250);
+
+            // Remove event listeners since popup is not triggered/visible
+            wrapper.removeEventListener('click',
+                hidePopup,
+                false
+            );
+
+            wrapper.removeEventListener('touchstart',
+                hidePopup,
+                false
+            );
+        };
+    </script>
+</body>
+
+</html>
+
+
+

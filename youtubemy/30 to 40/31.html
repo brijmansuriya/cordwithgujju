@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML VS CSS</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@600&display=swap"
+        rel="stylesheet">
+    <STyle>
+        body {
+            background: black;
+        }
+
+        .rainbow {
+            font-family: 'Big Shoulders Stencil Text', cursive;
+            font-size: 128px;
+            color: transparent;
+            background: linear-gradient(270deg, #1e5799, #2ce0bf, #76dd2c, #dba62b, #ff1493, #1e5799);
+            animation: rainbow 64s linear infinite;
+            background-size: 60% 100%;
+            -webkit-background-clip: text;
+            text-align: center;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position-x: 0;
+            }
+
+            to {
+                background-position-x: 10240px;
+            }
+        }
+    </STyle>
+</head>
+<body>
+    <p class="rainbow">HTML<BR>V<i class="fab fa-battle-net"></i>S<BR>CSS</p>
+</body>
+</html>

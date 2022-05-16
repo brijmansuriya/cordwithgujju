@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('http://fonts.cdnfonts.com/css/gill-sans-mt-condensed');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /*Hide scroll indicator*/
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #ff6347;
+        }
+
+        .profil {
+            position: absolute;
+            max-width: 50px;
+            border-radius: 50%;
+            top: 20px;
+            right: 20px;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 90vh;
+            width: 85vw;
+            border-radius: 20px;
+            z-index: 3;
+            background-color: rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: 11px 10px 27px -1px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 11px 10px 27px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 11px 10px 27px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            position: relative;
+            height: 400px;
+            width: 300px;
+            overflow: hidden;
+            background: #191919;
+            border-radius: 20px;
+        }
+
+        .card:before {
+            position: absolute;
+            content: "";
+            top: -50%;
+            width: 100%;
+            height: 100%;
+            background: #ff6347;
+            transform: skewY(345deg);
+            border-bottom-left-radius: 100px;
+            z-index: 0;
+        }
+
+        .card:after {
+            content: "YayaDev";
+            position: absolute;
+            left: 17%;
+            bottom: 0;
+            width: 100%;
+            font-size: 3.5em;
+            font-weight: 600;
+            color: rgba(240, 240, 240, 0.2);
+            font-family: "Gill Sans MT", sans-serif;
+            transform: rotate(-90deg) translate(40%, 80%);
+        }
+
+        .card .image {
+            height: 90%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.5s;
+        }
+
+        .ps5 {
+            max-width: 250px;
+            z-index: 3;
+            transition: 0.5s;
+        }
+
+        .xbox {
+            max-width: 350px;
+            z-index: 3;
+            transition: 0.5s;
+        }
+
+        .card .info {
+            height: 50%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .info {
+            opacity: 0;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #fff;
+            font-family: "Gill Sans MT", sans-serif;
+        }
+
+        .price {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #fff;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+                "Lucida Sans", Arial, sans-serif;
+        }
+
+        .description {
+            font-size: 1em;
+            font-weight: 400;
+            color: #fff;
+            font-family: "Gill Sans MT", sans-serif;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .buy {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+            font-family: "Gill Sans MT", sans-serif;
+            background: red;
+            border-radius: 10px;
+            padding: 8px 10px;
+            cursor: pointer;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .card:hover {
+            -webkit-box-shadow: 11px 10px 27px -1px rgba(0, 0, 0, 0.21);
+            -moz-box-shadow: 11px 10px 27px -1px rgba(0, 0, 0, 0.21);
+            box-shadow: 11px 10px 27px -1px rgba(0, 0, 0, 0.21);
+            transition: 0.5s;
+        }
+
+        .card:hover .info {
+            opacity: 1;
+            transition: 0.5s;
+        }
+
+        .card:hover img {
+            transform: rotate(-180deg);
+            transition: 0.5s;
+        }
+
+        .card:hover .image {
+            height: 50%;
+            transition: 0.5s;
+        }
+
+        .card:not(:hover) img {
+            transition: 0.5s;
+        }
+
+        .card:not(:hover) .image {
+            transition: 0.5s;
+        }
+
+        .card:not(:hover) .info {
+            transition: 0.5s;
+        }
+
+        .circle1 {
+            height: 100vh;
+            width: 100vw;
+            background-color: #c1c5cdce;
+            position: absolute;
+            -webkit-clip-path: circle(40% at 0 0);
+            clip-path: circle(40% at 0 0);
+        }
+
+        .circle2 {
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background-color: #232323be;
+            -webkit-clip-path: circle(40% at 100% 100%);
+            clip-path: circle(40% at 100% 100%);
+        }
+
+        .vs {
+            font-size: 8em;
+            font-family: "Gill Sans MT";
+            font-weight: 700;
+            transform: rotate(-50deg);
+        }
+
+        @media screen and (max-width: 865px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+                padding: 30px 0;
+            }
+
+            body {
+                overflow: auto;
+                height: 100%;
+                padding: 30px 0;
+            }
+
+            .card:nth-child(1) {
+                margin-bottom: 20px;
+            }
+
+            .circle1 {
+                top: 0;
+            }
+
+            .circle2 {
+                top: 56%;
+            }
+
+            .vs {
+                font-size: 5rem;
+                margin-top: 10px;
+            }
+        }
+
+        @media screen and (max-width: 525px) {
+            .yayadev {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="image">
+                <img src="https://cdn.pixabay.com/photo/2020/06/21/20/43/playstation-5326719_960_720.png" alt="ps5"
+                    class="ps5">
+            </div>
+            <div class="info">
+                <div class="title">Ps5 controller</div>
+                <div class="description">
+                    lorem ipsum dolor sit amer lorem ipsum dolor sit amer lorem ipsum dolor sit amer.
+                </div>
+                <div class="price">46.000 <small>XOF</small></div>
+                <div class="buy">BUY</div>
+            </div>
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="card">
+            <div class="image">
+                <img src="http://pngimg.com/uploads/xbox/xbox_PNG101370.png" alt="xbox" class="xbox">
+            </div>
+            <div class="info">
+                <div class="title">Xbox controller</div>
+                <div class="description">
+                    lorem ipsum dolor sit amer lorem ipsum dolor sit amer lorem ipsum dolor sit amer.
+                </div>
+                <div class="price">46.000 <small>XOF</small></div>
+                <div class="buy">BUY</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: sans-serif;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .hero {
+            min-height: 100vh;
+            width: 100%;
+            background: #1b1b1b;
+            position: absolute;
+
+        }
+
+        div {
+            box-sizing: border-box;
+        }
+
+        /*main box*/
+        .main-box {
+            width: 320px;
+            height: 480px;
+            position: relative;
+            margin: 6% auto;
+            background: #1b1b1b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .sp {
+            position: absolute;
+            transition: 0.5s;
+        }
+
+        .sp-t {
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(to left, transparent, #ff00aa, #00ff22);
+            animation: anim2 2s linear infinite;
+            transform: translateY(-300%);
+            animation-delay: 0.8s;
+        }
+
+        .sp-r {
+            bottom: 0;
+            right: 0;
+            width: 2px;
+            height: 200px;
+            background: linear-gradient(to top, transparent, #00ff4c, #ff0095);
+            animation: anim1 2s linear infinite;
+            animation-delay: 0s;
+        }
+
+        .sp-b {
+            right: 0;
+            bottom: 0;
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(to left, transparent, #01ff4d, #ff009d);
+            animation: anim2 2s linear infinite;
+        }
+
+        .sp-l {
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 200px;
+            background: linear-gradient(to top, transparent, #ff0062, #01ff4d);
+            animation: anim1 2s linear infinite;
+            animation-delay: 1s;
+            transform: translateX(-300%);
+        }
+
+        @keyframes anim1 {
+            0% {
+                transform: translateY(300%);
+
+            }
+
+            100% {
+                transform: translateY(-300%);
+
+            }
+        }
+
+        @keyframes anim2 {
+            0% {
+                transform: translateX(300%);
+            }
+
+            100% {
+                transform: translateX(-300%);
+
+            }
+        }
+
+        /*main box end*/
+
+        .form-box {
+            width: 316px;
+            height: 476px;
+            position: relative;
+            background: #252525;
+            padding: 5px;
+            overflow: hidden;
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="main-box">
+            <div class="form-box">
+                <div id="after"></div>
+            </div>
+            <span class="sp sp-t"></span>
+            <span class="sp sp-r"></span>
+            <span class="sp sp-b"></span>
+            <span class="sp sp-l"></span>
+        </div>
+    </div>
+</body>
+</html>

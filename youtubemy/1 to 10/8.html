@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML VS CSS</title>
+    <STyle>
+        body {
+            background: rgb(0, 0, 0);
+          
+            font-size: 100%;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            color: white;
+            text-align: center;
+        }
+
+        progress {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 20px;
+            height: 3vw;
+            width: 100%;
+            background: #1A3344;
+            border: none;
+        }
+
+        progress::-moz-progress-bar {
+            border-radius: 20px;
+            background: linear-gradient(to right, #00ffbf 0%, #4db3ff 100%);
+        }
+
+        progress::-webkit-progress-bar {
+            border-radius: 20px;
+            background: #0eb98f;
+            background: linear-gradient(to right, #0eb98f 0%, #4db3ff 100%);
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px auto;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 4.5vw;
+            margin-bottom: 12px;
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 2.8vw;
+            margin-top: 0;
+        }
+
+        svg rect {
+            fill: #22B88E;
+            animation: scale 2.8s infinite;
+            transform-origin: center;
+        }
+
+        svg rect:nth-child(1) {
+            animation-delay: 0;
+            fill: #1A9F8C
+        }
+
+        svg rect:nth-child(2) {
+            animation-delay: 200ms;
+            fill: #1EAB8D
+        }
+
+        svg rect:nth-child(3) {
+            animation-delay: 400ms;
+            fill: #20B38E
+        }
+
+        svg rect:nth-child(4) {
+            animation-delay: 600ms;
+            fill: #22B78D
+        }
+
+        svg rect:nth-child(5) {
+            animation-delay: 800ms;
+            fill: #22B88E
+        }
+
+        svg rect:nth-child(6) {
+            animation-delay: 1s;
+            fill: #21B48D
+        }
+
+        svg rect:nth-child(7) {
+            animation-delay: 1.2s;
+            fill: #1EAF8E;
+        }
+
+        svg rect:nth-child(8) {
+            animation-delay: 1.4s;
+            fill: #1CA48D;
+        }
+
+        svg rect:nth-child(9) {
+            animation-delay: 1.6s;
+            fill: #17968B
+        }
+
+        svg rect:nth-child(10) {
+            animation-delay: 1.8s;
+            fill: #128688
+        }
+
+        svg rect:nth-child(11) {
+            animation-delay: 2s;
+            fill: #128688
+        }
+
+        @keyframes scale {
+            from {
+                transform: scaleY(1);
+            }
+
+            50% {
+                transform: scaleY(0.2);
+            }
+        }
+    </STyle>
+</head>
+
+<body>
+    <section>
+        <svg viewbox="0 0 660 300" width="100%" height="300px">
+            <rect width="60" height="300" x="0%" />
+            <rect width="60" height="300" x="10%" />
+            <rect width="60" height="300" x="20%" />
+            <rect width="60" height="300" x="30%" />
+            <rect width="60" height="300" x="40%" />
+            <rect width="60" height="300" x="50%" />
+            <rect width="60" height="300" x="60%" />
+            <rect width="60" height="300" x="70%" />
+            <rect width="60" height="300" x="80%" />
+            <rect width="60" height="300" x="90%" />
+            <rect width="60" height="300" x="100%" />
+        </svg>
+        <h1>HTML VS CSS</h1>
+    </section>
+</body>
+
+</html>

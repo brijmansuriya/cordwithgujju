@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mainpanel {
+            margin-top: 70px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+   
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-default panel-primary" id="mainpanel">
+            <div class="panel-heading mt-5">
+                <h1 class="panel-title ">Google Drive Direct Download Link Generator</h1>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group mt-5">
+                        <label for="sharelink">Share link</label>
+                        <input type="text" class="form-control" id="sharelink"
+                            placeholder="https://drive.google.com/file/d/XX-X__XXXXX-XXXXXXXXXXXXXXXX/view?usp=sharing"
+                            autofocus="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="downloadlink">Download link</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="downloadlink" readonly>
+                            <span class="input-group-btn">
+                                <button id="copylinkbtn" onclick="mycopybuttan()" class="btn btn-primary" type="button"
+                                    disabled>Copy link</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+
+                <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample"
+                    aria-expanded="false" aria-controls="collapseExample">
+                    Show instructions
+                </button>
+                <div class="collapse" id="collapseExample">
+                    <br />
+                    <div class="well text-center">
+                        <img src="https://drive.google.com/uc?export=download&id=0B-B__6JMBt-jb1MxWHY5UE5QUXM" alt="" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer text-right">&copy; HTMLVSCSS</div>
+        </div>
+    </div>
+    <script>
+
+        $(document).ready(function () {
+
+            var $shareLink = $('#sharelink'),
+                $downloadLink = $('#downloadlink'),
+                $copyButton = $('#copylinkbtn')
+
+            $shareLink.on('keyup paste', function () {
+                var link = $shareLink.val(),
+                    l = link.replace(/\/file\/d\/(.+)\/(.+)/, "/uc?export=download&id=$1");
+                if (l !== link) {
+                    $downloadLink.val(l);
+                    $copyButton.removeAttr('disabled');
+                } else {
+                    $downloadLink.val('');
+                    $copyButton.attr('disabled', 'disabled');
+                }
+            });
+
+            $downloadLink.on('click', function () {
+                $downloadLink.select();
+            });
+
+
+
+        });
+
+        function mycopybuttan() {
+            var copyTxt = document.getElementById("downloadlink");
+            copyTxt.select();
+            document.execCommand("copy");
+        }
+    </script>
+</body>
+
+</html>

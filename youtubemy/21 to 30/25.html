@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML VS CSS</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    <style>
+        .swal-button--danger {
+            background-color: #000000;
+        }
+
+        .swal-button--danger:not([disabled]):hover {
+            background-color: #f50000;
+        }
+
+        .swal-icon--warning__body,
+        .swal-icon--warning__dot {
+            position: absolute;
+            left: 50%;
+            background-color: #ff0000;
+        }
+
+        .swal-icon--warning {
+            -webkit-animation: pulseWarning .75s infinite alternate;
+            animation: pulseWarning .75s infinite alternate;
+        }
+
+        .swal-overlay--show-modal .swal-modal {
+            opacity: 1;
+            pointer-events: auto;
+            box-sizing: border-box;
+            -webkit-animation: showSweetAlert .3s;
+            animation: showSweetAlert .3s;
+            will-change: transform;
+        }
+
+        .swal-button--cancel:not([disabled]):hover {
+            background-color: #ff0000;
+        }
+
+        .btn{
+            margin: 50PX;
+        } 
+    </style>
+</head>
+
+<body>
+
+    <a href="#modal-panel" class="btn btn-success btn-xs" id="Confirm"><i class="fa fa-check"
+            aria-hidden="true"></i>Button
+    </a>
+
+    <script>
+        document.getElementById('Confirm').onclick = function () {
+            swal({
+                title: "Are you sure?",
+                text: "Once Confirm, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                confirmButtonColor: 'LightSeaGreen',
+                dangerMode: true,
+
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Poof! Your imaginary file has been Confirm!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+        };
+
+
+    </script>
+</body>
+
+</html>

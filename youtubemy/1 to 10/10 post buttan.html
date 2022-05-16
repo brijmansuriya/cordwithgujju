@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <style>
+        body {
+            padding: 0;
+            direction: rtl;
+            background-color: #FCFCFC;
+            text-align: right;
+        }
+
+        a:hover {
+            text-decoration: none !important;
+        }
+
+        .dedcription-btn {
+            width: 250%;
+            position: relative;
+            display: inline-block;
+            border-radius: 30px;
+            background-color: #fcfcfc;
+            color: #000000;
+            text-align: center;
+            font-size: 18px;
+            padding: 9px 0;
+            transition: all 0.3s;
+            padding-right: 40px;
+            margin: 20px 5px;
+            box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.06);
+            text-decoration: none;
+        }
+
+        .dedcription-btn .btn-icon {
+            background-color: #ffa000;
+            width: 92px;
+            height: 45px;
+            float: right;
+            position: absolute;
+            border-radius: 30px 30px 30px 0;
+            ;
+            right: 0px;
+            top: 0px;
+            transition: all 0.3s;
+        }
+
+        .name-descripeion {
+            position: relative;
+            z-index: 9999;
+        }
+
+        .btn-icon::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: 45px solid #fcfcfc;
+            border-right: 40px solid transparent;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .dedcription-btn:hover .btn-icon {
+            width: 100%;
+            border-radius: 30px;
+        }
+
+        .dedcription-btn:hover .btn-icon::after {
+            display: none;
+            opacity: 0.1;
+        }
+
+        .btn-icon i {
+            position: absolute;
+            right: 25px;
+            top: 15px;
+            color: #fff;
+        }
+
+        .dedcription-btn:hover {
+            color: #fff !important;
+        }
+
+        .heart {
+            background-color: #ff586b !important;
+        }
+
+        .book {
+            background-color: #00b7c4 !important;
+        }
+
+        .brain {
+            background-color: #8bc34a !important;
+        }
+
+        .gbrain {
+            background-color: #0400ff !important;
+        }
+
+        .aabrain {
+            background-color: #00c3ff !important;
+        }
+
+        .abbrain {
+            background-color: #e5ff00 !important;
+        }
+
+        .acbrain {
+            background-color: #ff00bf !important;
+        }
+
+        .adbrain {
+            background-color: #ff4800 !important;
+        }
+
+        .afbrain {
+            background-color: #ffc400 !important;
+        }
+
+        .arain {
+            background-color: #4158D0;
+            background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+        }
+
+        .carain {
+            background-color: #FFFFFF;
+            background-image: linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%);
+
+
+        }
+
+        .darain {
+            background-color: #FA8BFF;
+            background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+
+        }
+
+        .earain {
+            background-color: #FFDEE9;
+            background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+
+
+
+        }
+
+        .farain {
+            background-color: #08AEEA;
+            background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+
+
+        }
+
+        .hover-box {
+            display: flex;
+            width: 100%;
+
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="hover-box">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">HTML</span>
+                        <div class="btn-icon">
+                            <i class="far fa-lightbulb"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon arain">
+                            <i class="fab fa-adn"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">VS </span>
+                        <div class="btn-icon heart">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon earain">
+                            <i class="fab fa-adn"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">CSS</span>
+                        <div class="btn-icon book">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon farain">
+                            <i class="fab fa-adn"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">JS</span>
+                        <div class="btn-icon brain">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon gbrain">
+                            <i class="fas fa-asterisk"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon aabrain">
+                            <i class="fas fa-arrows-alt"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon abbrain">
+                            <i class="fab fa-angellist"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon acbrain">
+                            <i class="fab fa-amazon-pay"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon adbrain">
+                            <i class="fab fa-accusoft"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon afbrain">
+                            <i class="fab fa-adn"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon carain">
+                            <i class="fab fa-adn"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="dedcription-btn" href="#">
+                        <span class="name-descripeion">Buttan</span>
+                        <div class="btn-icon darain">
+                            <i class="fab fa-adn"></i>
+                        </div>
+                    </a>
+                </div>
+               
+               
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

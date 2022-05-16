@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML VS CSS</title>
+    <STyle>
+        @import url(https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap);
+
+        body {
+            background-color: #0a062f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+            padding: 100px;
+            box-sizing: border-box;
+        }
+
+        h3 {
+            color: white;
+            font-family: 'Abril Fatface';
+            font-weight: 200;
+            text-transform: uppercase;
+            font-size: 3rem;
+            display: inline-block;
+            line-height: 92%;
+            text-transform: uppercase;
+            color: #b9dfff;
+        }
+
+        h3 span {
+            color: #4dbef6;
+            z-index: -1;
+            transform: rotate(3deg);
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, #fc466b, #3f5efb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        span:nth-child(1) {
+            background: linear-gradient(90deg, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        span:nth-child(3) {
+            background: linear-gradient(90deg, #f5af19, #f12711);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 4px;
+        }
+
+        h3:nth-child(2) {
+            width: 100%;
+            text-align: center;
+            margin-top: 10rem;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }
+
+        h3:nth-child(2) span {
+            font-size: 2.2rem;
+        }
+    </STyle>
+</head>
+
+<body>
+
+    <h3>
+        <span>HTML</span>,
+        <span> VS</span>
+        &amp;
+        <span>CSS</span>
+    </h3>
+
+    <h3>
+        <span>HTML</span>,<BR>
+        <span> VS</span>,<BR>
+        &amp; <BR>
+        <span>CSS</span>
+    </h3>
+
+
+</body>
+
+</html>
